@@ -1,26 +1,15 @@
-I first looked at the code and saw the 2 key parts that are validating the input:
+I first tried to look for vulnerable functions that could help me.
+I looked at explode, implode, unset and even (int), but nothing.
 
-```if (! is_numeric ($id) or $id < 2)```
-and
-```
-$special1 = ["!", "\"", "#", "$", "%", "&", "'", "*", "+", "-"];
-    $special2 = [".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]"];
-    $special3 = ["^", "_", "`", "{", "|", "}"];
-    $sql = ["union", "0", "join", "as"];
-    $blacklist = array_merge ($special1, $special2, $special3, $sql);
-    foreach ($blacklist as $value) {
-        if (stripos($table, $value) !== false)
-```
+But then I looked closer and tried to look at the problem not from a php point a view, and the solution was easy.
 
-First, I tried looking for a way to abuse the ID field, unfortunately I didn't find anything of value to bypass the is_numeric function, the only things that maybe the author of the code doesn't intend for is that it works with floats, and numbers like 01233
+It's a classic mistake to iterate over an array and change the size of it while iterating over it.
 
-Then I saw the "hints" on the page, saying that the hero with ID 1 would be interesting and that each hero has an enemy. so I guessed I need to get the enemy of the hero which his ID is 1.
+So the solution is easy, non integer values will not be checked if they are at the end of the array and there are non integer elements at the start.
 
-I then saw that even though there are a lot of disabled keywords, I can still use many other, like select, from, limit and so on.
+I first tried to input ```,0```, and it worked!
+I got: User admin with id 0 has all privileges.
 
-I the started exploring with these parameters:
-```user_id=2&table=(SELECT 2 id, username from costume)&submit=Submit```
-And saw it works when I got the output: Batman, meaning this works.
-I then expermiented with a few others and finally got this query to work:
-```user_id=2&table=(SELECT 2 id, enemy username FROM costume WHERE id LIKE 1)&submit=Submit```
-And then I got the flag :)
+So I then proceeded to sqli this:
+```,,,)) union SELECT user_password user_id,1,1 FROM users--```
+And then I got the flag!
