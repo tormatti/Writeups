@@ -1,15 +1,10 @@
-I first tried to look for vulnerable functions that could help me.
-I looked at explode, implode, unset and even (int), but nothing.
+The PHP create_function() documentation clearly states the problem, when creating this function there is an internal eval that runs.
 
-But then I looked closer and tried to look at the problem not from a php point a view, and the solution was easy.
+I first tried passing ```echo $flag``` but that didn't work, because the eval is ran internally and doesn't run the function itself.
 
-It's a classic mistake to iterate over an array and change the size of it while iterating over it.
+So I just escaped it:
 
-So the solution is easy, non integer values will not be checked if they are at the end of the array and there are non integer elements at the start.
+```};echo $flag;```
 
-I first tried to input ```,0```, and it worked!
-I got: User admin with id 0 has all privileges.
-
-So I then proceeded to sqli this:
-```,,,)) union SELECT user_password user_id,1,1 FROM users--```
-And then I got the flag!!
+But that didn't work, so I just added // to the end to comment anything that would give me a syntax exception:
+```};echo $flag;//```
