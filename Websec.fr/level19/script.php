@@ -42,10 +42,14 @@
     echo "Captcha is: " . $captcha . "\n";
 
     $ch = curl_init('https://websec.fr/level19/index.php');
+    curl_setopt($ch, CURLOPT_HTTP_VERSION, CURLOPT_HTTP_VERSION_1_0);
     curl_setopt($ch, CURLOPT_POST, TRUE);
     curl_setopt($ch, CURLOPT_COOKIE, "PHPSESSID=$php_sessid");
     curl_setopt($ch, CURLOPT_POSTFIELDS, "captcha=$captcha&token=$my_token");
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: websec.fr"));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Host: \r\n",  // Just spaces
+    "Content-Type: application/x-www-form-urlencoded"
+]);
 
     curl_exec($ch);
     curl_close($ch);
