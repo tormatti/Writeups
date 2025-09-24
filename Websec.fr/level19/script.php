@@ -30,11 +30,28 @@
 
     $server_token = preg_match('/name="token" value="([A-Z)a-z0-9]+)"/', $resp, $matches);
 
-    if ($my_token === $matches[1]) {
-        echo "Found seed!\n";
+    echo "TOKEN TO FIND: " . $matches[1] . "\n";
+
+    $seconds_back = 10;
+    $now = microtime(true);
+    $found = false;
+    while ($found !== true && $seconds_back > -10)
+    {
+        $t = $now - $seconds_back;
+        srand($t);
+        $my_token = generate_random_text(32);
+        if ($my_token === $matches[1]) {
+            echo $my_token . " is right!\n";
+            $found = true;
+        }
+        else {
+            echo $my_token . " is wrong" . "\n";
+            $seconds_back = $seconds_back - 1;
+        }
     }
-    else {
-        die("Seed is wrong");
+
+    if (!$found) {
+        die("Didn't find seed");
     }
 
     $captcha = generate_random_text (255 / 10.0);
@@ -46,10 +63,7 @@
     curl_setopt($ch, CURLOPT_POST, TRUE);
     curl_setopt($ch, CURLOPT_COOKIE, "PHPSESSID=$php_sessid");
     curl_setopt($ch, CURLOPT_POSTFIELDS, "captcha=$captcha&token=$my_token");
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Host: \r\n",  // Just spaces
-    "Content-Type: application/x-www-form-urlencoded"
-]);
+
 
     curl_exec($ch);
     curl_close($ch);
