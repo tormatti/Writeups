@@ -20,4 +20,4 @@ Outputs: True
 
 I then looked at the provided hash of the flag and I saw that the second byte is a null byte so I just had to find a string that when hashed it wil give me the same first byte and a null byte at the end. 
 
-I wrote a php [script]: https://github.com/tormatti/Writeups/blob/main/Websec.fr/level03/script.php to brute force strings and found 2 that work: CWM and 0EK
+I wrote a php [script](https://github.com/tormatti/Writeups/blob/main/Websec.fr/level03/script.php) to brute force strings and found 2 that work: CWM and 0EK
