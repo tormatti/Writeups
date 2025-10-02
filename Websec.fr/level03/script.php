@@ -19,8 +19,9 @@ for($i = 0; $i < $len; $i++){
     $strings = r_generate_strings($i);
     $strings_arr = explode(",", $strings);
     foreach($strings_arr as $str) {
-        $sha = sha1($str, true);
-        if($sha[0] === "\x7c" && $sha[1] === "\x00")
+        $sha = md5($str);
+        print_r($sha[1]);
+        if($sha[1] === "4")
             echo "Found it: " . $str . "\n";
     }
 
