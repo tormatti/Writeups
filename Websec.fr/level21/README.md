@@ -22,7 +22,7 @@ The plan is that I can change the encrypted session token, so in the auth functi
 
 The problem with the Bit Flipping Attack is that If I can control one block, the one before it will get scrambled.
 
-![CBC decryption](image-1.png)
+![CBC decryption](image.png)
 
 So in this image, if I change the C1 so I can control P2, P1 will get scrambled because it uses C1 as well for decryption.
 This means that I need to think carefully what I change so I can deal with scrambled strings in my payload.
