@@ -1,0 +1,7 @@
+git clone ssh://bandit31-git@bandit.labs.overthewire.org:2220/home/bandit31-git/repo
+rm .gitignore
+echo "May I come in?" > key.txt
+git add .
+git commit . -m "Adding key.txt"
+git push
+3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K

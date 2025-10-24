@@ -1,0 +1,15 @@
+mktemp -d
+cd /tmp/tmp.tguIpKT5nn
+touch brute_force.sh
+vim brute_force.sh
+
+    /usr/bin/bash
+
+    for code in $(seq -w 9999); do
+        ~/leviathan6 "$code"
+    done
+
+cd ~
+/tmp/tmp.tguIpKT5nn/brute_force.sh
+cat /etc/leviathan_pass/leviathan7
+qEs5Io5yM8

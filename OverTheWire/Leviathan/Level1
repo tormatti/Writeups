@@ -1,0 +1,7 @@
+cat ./check
+notice this line: q�U��SQ�� e��E�1��E�sex�E�secr�E�ret�E�god�E�love�E���
+./check
+try this password: sexsecretgodlove
+it works!
+cat /etc/leviathan_pass/leviathan2
+NsN1HwFoyN

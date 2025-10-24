@@ -1,0 +1,5 @@
+cd .trash
+./bin
+00110000 01100100 01111001 01111000 01010100 00110111 01000110 00110100 01010001 01000100 00001010
+this looks like binary format, when converted to ascii it gives:
+0dyxT7F4QD

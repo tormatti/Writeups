@@ -1,0 +1,11 @@
+git clone ssh://bandit29-git@bandit.labs.overthewire.org:2220/home/bandit29-git/repo
+git branch --all
+git checkout remotes/origin/dev
+cat README.md
+
+
+## credentials
+
+- username: bandit30
+- password: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+

@@ -1,0 +1,5 @@
+scp -P 2220  bandit13@bandit.labs.overthewire.org:~/sshkey.private ./sshkey
+chmod -r sshkey
+sudo ssh bandit.labs.overthewire.org -p 2220 -l bandit14 -i sshkey
+cat /etc/bandit_pass/bandit14
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS

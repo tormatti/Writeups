@@ -1,0 +1,3 @@
+cd .backup
+cat bookmarks.html | grep password
+3QJ3TgzHDq

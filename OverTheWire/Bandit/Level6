@@ -1,0 +1,3 @@
+find / -group bandit6 -user bandit7 -size 33c
+cat /var/lib/dpkg/info/bandit7.password
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj

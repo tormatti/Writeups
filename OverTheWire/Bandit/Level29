@@ -1,0 +1,7 @@
+git clone ssh://bandit28-git@bandit.labs.overthewire.org:2220/home/bandit28-git/repo
+git log
+git show b5ed4b5a3499533c2611217c8780e8ead48609f6
+
+ - username: bandit29
+-- password: 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
++- password: xxxxxxxxxx

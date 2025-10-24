@@ -1,0 +1,3 @@
+ltrace ./level3 => strcmp("test\n", "snlprintf\n")                                                                                                                    = 1
+enter snlprintf as password
+WG1egElCvO
